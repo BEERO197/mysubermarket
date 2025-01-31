@@ -94,7 +94,7 @@ while ($row=mysqli_fetch_assoc($result)){
     <div class="header">
         <div class="container1">
        <div class="logo">
-      <h1>zakut_shopping online</h1>   
+      <h1> ABO zakut_shopping online</h1>   
       <img src="../images/a1.png"></img>  
      </div>
      <!---searsh -->
