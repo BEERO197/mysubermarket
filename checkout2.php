@@ -21,7 +21,7 @@ if (isset($_POST['complete_order'])) {
 
         if (mysqli_num_rows($result_cart) > 0) {
             $total_amount = 0;
-            while ($row = mysqli_fetch_assoc($result_cart)) {
+            while ($rpow = mysqli_fetch_assoc($result_cart)) {
                 $product_id = $row['product_id'];
                 $product_price = $row['price'];
                 $product_quantity = $row['quantity'];
