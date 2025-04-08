@@ -3,7 +3,7 @@ include "../include/connection1.php";
 
 
 session_start();
-echo "<h1>control panal</h1>";
+echo "<center><h3>لوحة تحكم خاصة بالادمن</h3></center>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@ echo "<h1>control panal</h1>";
 
 <link rel="stylesheet" href="style1.css">
     
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>control panel for admin</title>
 </head>
@@ -38,15 +38,15 @@ $id=$_GET['id'];
 
 if(isset($secadd)){
   if(empty($section_name)){
-     echo'<script> alert ("inter the field");</script>';
+     echo'<script> alert ("ادخل اسم القسم");</script>';
   }
   elseif (strlen($section_name)>50) {
-    echo'<script> alert ("long the field");</script>';
+    echo'<script> alert ("اسم القسم طويل");</script>';
   }
   else{
       $query="INSERT INTO section (section_name)VALUES('$section_name')";
       $result=mysqli_query($conn,$query);
-      echo'<script> alert ("insert the field sussifluty");</script>';
+      echo'<script> alert ("تم اضافة قسم بنجاح");</script>';
 
   }
 
@@ -62,9 +62,9 @@ if (isset($id)){
   $delet=mysqli_query($conn,$query);
     if(isset($delet)){
 
-      echo '<script> alert ("delete sufisscly")</script>';
+      echo '<script> alert ("تم حذف القسم")</script>';
     }else {
-      echo '<script> alert ("dont delete sufisscly")</script>';
+      echo '<script> alert ("لم يتم حذف القسم ")</script>';
 
     }
 }
@@ -74,23 +74,26 @@ if (isset($id)){
 
 
 
-<!---idebar start--->
+<!---sidebar start--->
  <div class="sidbar_container">
 
 
 <div class="sidebar">
 
-<center><h1>control panal</h1></center>
+<center><h1></h1></center>
 
     <ul>
    
-    <li><a href="../index.php" target="_blank" > home page<i class="fa-solid fa-house-chimney"></i></a></li>
-    <li><a href="" target="_blank" > order page<i class="fa-solid fa-folder-open"></i></a></li>
+    <li><a href="../index.php" target="_blank" > الرئيسية<i class="fa-solid fa-house-chimney"></i></a></li>
+    <li><a href="orders.php" target="_blank" > صفحة الطلبات <i class="fa-solid fa-folder-open"></i></a></li>
+    <i class="fa-solid fa-folder-open"></i></a></li>
     <li><a href="" target="_blank" > user info<i class="fa-solid fa-users"></i></a></li>
-    <li><a href="productchat.php" target="_blank" > products page<i class="fa-solid fa-gift"></i></a></li>
-    <li><a href="addproduct.php" target="_blank" > add product<i class="fa-solid fa-plus"></i></a></li>
-    <li><a href="logout.php" target="_blank" > logout<i class="fa-solid fa-share-from-square"></i></a></li>
+    <li><a href="product.php" target="_blank" >    صفحة المنتجات <i class="fa-solid fa-gift"></i></a></li>
+    <li><a href="addproduct.php" target="_blank" >     اضافة منتج<i class="fa-solid fa-plus"></i></a></li>
+    <li><a href="logout.php" target="_blank" >         خروج من 
+    <i class="fa-solid fa-share-from-square"></i></a></li>
 </ul>
+<br><br><br><br>
 </div>
 
  
@@ -98,19 +101,19 @@ if (isset($id)){
 
 <div class="content_sec"> 
     <form action="adminpanal.php"  method="post">
-        <label for="section" >add new part </label>
+        <label for="section" > اضف قسم جديد</label>
         <input type="text" name="section_name"  id ="section">
         <br>
-        <button class="add"  type="submit" name="secadd">add part</button>
+        <button class="add"  type="submit" name="secadd">اضافة قسم</button>
       </form>
 
 <!---table start--->
 
         <table dir="rtl">
     <tr>
-        <th>id</th>
-        <th>name part</th>
-        <th>delete part</th>
+        <th>الرقم</th>
+        <th>اسم القسم</th>
+        <th>حذف قسم</th>
    </tr>
    <tr>
     <?php
@@ -121,7 +124,7 @@ while ($row=mysqli_fetch_assoc($result)){
     <td><?php echo $row['id'];?></td>
     <td><?php echo $row['section_name'];?></td>
     <td><a href="adminpanal.php?id=<?php echo $row['id'];?>">
-      <button type="submit"  class="delet">DELETE PART</button></a></td>
+      <button type="submit"  class="delet">حذف قسم</button></a></td>
 
   </tr>
 <?php
@@ -129,13 +132,15 @@ while ($row=mysqli_fetch_assoc($result)){
 
 ?>
     </table>
+
+    <br><br>
 <!---table end--->
   </div>
 <!---section end--->
 
 
   </div>
-
+<br><br>
 <?php
 ///close else
 }

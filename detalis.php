@@ -34,6 +34,7 @@ include('file/header.php');
      width:400px;
      height:400px;
      margin-left:40px;
+     margin-right:20px;
      margin-bottom:20px;
      box-shadow:0 5px 10px rgba(0,0,0,1.0);
     }
@@ -122,8 +123,8 @@ textarea{
 text-align:center;
 width:80%;
 margin-top:20px;
-margin-right:40px;
-margin-bottom:10px;
+margin-right:20px;
+margin-buttom:10px;
 padding:10px;
 border-radius:10px;
 height:50px;
@@ -132,9 +133,10 @@ height:50px;
 
 .add_comment{
    float:left;
-/text-align:center;
-   width:100px;
-   height:35px;
+   text-align:center;
+   align-items:center;
+   width:25%;
+   height:45px;
   margin-left:40px;
    background-color:#fff;
    padding:10px 10px;
@@ -149,6 +151,7 @@ height:50px;
 
 .comments{
 margin-top:10px;
+margin-buttom:10px;
 }
 .comment{
    color:black;
@@ -162,7 +165,7 @@ margin-bottom:10px;
 border-radius:5px;
 overflow:hidden;
 text-overflow:ellipsis;
-
+margin-buttom :20px;
 }
       </style>
 
@@ -177,6 +180,10 @@ $result=mysqli_query($conn,$query);
 $row=mysqli_fetch_assoc($result);
 //print_r($row);
 //print_r($id);
+
+header("Location: detalis.php?id=$id");
+
+
 }
       ?>
 <div class="container">
@@ -226,10 +233,12 @@ $query="SELECT * FROM  products WHERE id!='$id' ORDER BY rand() LIMIT 3";
 $result=mysqli_query($conn,$query);
 //if($result){echo"ok";
 //print_r($row);
+header("Location: detalis.php?id=$id");
 
 
 //}else{}
 while($row=mysqli_fetch_assoc($result)){
+   header("Location: detalis.php?id=$id");
 
 ?>
    <div class="added_img"><a href="detalis.php?id=<?php echo $row['id']?>">
@@ -240,26 +249,71 @@ while($row=mysqli_fetch_assoc($result)){
 
     </div>
 <?PHP
+
+header("Location: detalis.php?id=$id");
+
+
 }?>
  </div>
     <!---srart cooment--->
+
+
    <div  class="comment_info">
-    <h5> hl tored taggeem hatha al montag </h5>
-    <form action="" method="post">
-     <textarea name="" placeholder="geem hatha al montag men fathlek "  requied></textarea>
-      <button class="add_comment"  type="submit"   name="">erssal</button>
+   <?php
+//add comment
+$comment=$_POST['comment'];
+$add_comment=$_POST['add_comment'];
+if (isset($add_comment)){
+if (empty($comment)){
+   echo '<script> alert(" الرجاء كتابة التعليق لان الحقل فارغ "); </script>';
+}else{
+   $query="INSERT INTO  commint  (comment) VALUES ('$comment')";
+   $result=mysqli_query($conn,$query);
+
+        // إعادة التوجيه مع الاحتفاظ بمعرف المنتج
+        header("Location: detalis.php?id=$id");
+        
+
+}
+}
+//استرجاع بيانات من قاعدة البيانات الي المتتجر
+$query="SELECT * FROM  commint ";
+$result=mysqli_query($conn,$query);
+
+header("Location: detalis.php?id=$id");
+
+
+?>
+    <h5>هل تريد تقييم هذا المنتج </h5>
+    <form action="" method="POST">
+     <textarea name="comment" placeholder="قييم هذا المنتج من فضلك"  ></textarea>
+      <button class="add_comment"  type="submit"   name="add_comment">  ارسال  </button>
     </form>
 
-    <h5>tagyemat al omalaa </h5>
+
+
+    <h5> تقييم العملاء</h5>
+
     <div class="comments">
+    <?php
 
-    <div class="comment">montag mmomtaz </div>
+    if ((mysqli_num_rows($result))>0) {
 
-    <div class="comment">montag mmomtaz </div>
+   while($row=mysqli_fetch_assoc($result)){
+echo" <div class=
+'comment'>".$row['comment'] ." </div>";
+header("Location: detalis.php?id=$id");
 
-    <div class="comment">montag mmomtaz </div>
+   }
 
-    <div class="comment">montag mmomtaz </div>
+
+    }   else{
+
+      echo"no comments";
+   }
+   header("Location: detalis.php?id=$id");
+
+    ?>
 
 
     </div>
@@ -277,8 +331,18 @@ while($row=mysqli_fetch_assoc($result)){
 </div>
 <br><br>
 
+<br><br>
+<br><br>
 
   <!---------end recently added --->
 
 </body>
 </html>
+
+    <!-- footer -->     
+    <?php
+
+       
+include "file/footer.php"
+?>
+

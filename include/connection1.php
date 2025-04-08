@@ -9,5 +9,6 @@ if (!isset($conn)){
 
     echo" connection  NOT OK";
 
+}else{    echo" connection OK";
 }
 ?>

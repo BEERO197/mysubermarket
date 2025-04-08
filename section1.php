@@ -1,37 +1,29 @@
-<?php 
-session_start();
+<?php
+include("./include/connection1.php");
+include("file/header.php");
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاقسام</title>
+</head>
+<body>
+   <main>
+   <div class="contianer_card" >
 
 <?php
-
-include("./include/connection1.php");
+$section = $_GET['section'];
+$query = "SELECT * FROM products WHERE prosection='$section'";
+$result = mysqli_query($conn, $query);
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
 ?>
-<?php  include("file/header.php")
-    ?>
-
-<main>
-    
-
-    
-          <!-- product -->  
-   <div class="contianer_card" >
-   <?php
-$query="SELECT * FROM products ";
-$result=mysqli_query($conn,$query);
-while ($row=mysqli_fetch_assoc($result)){
-//print_r($row);
-
-
-
-
-
-?>
-         <div class="product_card">
+ <div class="product_card">
        <!-- الصورة -->
-
-
        <div class="card-img" ><a href="detalis.php?id=<?php echo $row['id']?>">
-   
+           
            <img src="uploads/img//<?php echo $row['image'];?>">
            <span class="unvailable"><?php echo $row['prounv'];?></span>
 
@@ -54,56 +46,32 @@ while ($row=mysqli_fetch_assoc($result)){
   <div  class="product_discription"><a href="detalis.php?id=<?php echo $row['id']?>"><i class="fa-solid fa-eye"> </i></a>اضغط هنا للمزيد من التفاصيل</div>
   
   <div class="qy_input">
-     <form action="cart1.php?action<?php echo $row['id']; ?> " method="post">   <button  class="qy_count-mins" >-</button>   
-   <input type="number" value="1" name="quantity" id="quantity" min="0" max="7" style="width :40px"></input>
-   <input type="hidden" name="h_name" value="<?php echo $row['name'];?>">
-   <input type="hidden" name="h_price" value="<?php echo $row['price'];?>">
-   <input type="hidden" name="h_img" value="<?php echo $row['image'];?>">
-
-
-
+      
+   <button  class="qy_count-mins" >-</button>   
+   <input type="number" value="1" name="" id="quantity" min="1" max="7" style="width:40px"></input>
      <button  class="qy_count-add" >+</button>   
   </div><!-- نهاية دف الكمية -->
   
   <!-- دف اضف للسلة  --> 
   
   <div  class=""><a href="">
-  <button  class="add-to-cart " type="submit" name="add"   value="add_cart" style="    margin:20px ;">اضف الي السلة
-    <i class="fa solid fa-cart-plus"></i></button>
+  <button  class="add-to-cart " type="submit" name="" style="margin:20px;">اضف الي السلة<i class="fa solid fa-cart-plus"></i></button>
   </a>
   </div>
-  </form>
-
+  
  </div>
- <?php
+
+<?php
+  }
+} else {
+    echo '<br><br><div class="card1">no result </div>';
 }
 ?>
-
  </div>
 
- <br><br><br><br>
-
-
 </main> 
-  <br><br><br>
-     <!---errore---->  
-           <!---errore---->  
-   
-      
-        
- <!-- ********* -->
-       
-   
-           
-  
-      
-    <!-- footer -->     
-       <?php
-
-       
-       include "file/footer.php"
-       ?>
-    
-       
-    
-    
+</body>
+</html>
+ <?php
+include "file/footer.php"
+?>

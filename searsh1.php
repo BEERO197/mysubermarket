@@ -1,9 +1,10 @@
 <?php
 include("./include/connection1.php");
-include "file/header.php";
+include "file/header1.php";
 ?>
 
 <?php
+
 if (isset($_GET['btn-searsh'])) {
     $search = $_GET['search'];
     $query = "SELECT * FROM products WHERE description LIKE '%$search%' OR name LIKE '%$search%' OR id LIKE '%$search%' OR price LIKE '%$search%'";
@@ -11,16 +12,15 @@ if (isset($_GET['btn-searsh'])) {
     
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
+
             echo '
             <div class="contianer_card">
             <div class="product_card">
                 <!-- الصورة -->
                 <div class="card-img">
 
-
-                
+     
                     <img src="uploads/img/' . $row['image'] . '">
-
 
 
                     <span class="unvailable">' . $row['prounv'] . '</span>
@@ -47,7 +47,7 @@ if (isset($_GET['btn-searsh'])) {
                 </a></div>
             </div>
             ';
-            
+
         }
 
 
@@ -59,5 +59,7 @@ if (isset($_GET['btn-searsh'])) {
         </div>
 
 <?php
+
+
 include "file/footer.php";
 ?>

@@ -1,16 +1,14 @@
 <?php
-$host = 'localhost';
-$db = 'ecommerce_db';
-$user = 'abeer';
-$pass = 'abeer_zakut';
+$host = 'sql307.infinityfree.com';
+$db = 'if0_38246983_mydatabase';
+$user = 'if0_38246983';
+$pass = 'zakutabeer';
 
-$dsn = "mysql:host=$host;dbname=$db;charset=utf8";
-try {
-    $pdo = new PDO($dsn, $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-echo "Connection ok: " . $e->getMessage();
+$conn=mysqli_connect($host,$username,$password,$dbname);
+if (!isset($conn)){
 
-} catch ("PDOException" $e) {
-    echo "Connection failed: " . $e->getMessage();
+    echo" connection  NOT OK";
+
+}else{    echo" connection OK";
 }
 ?>

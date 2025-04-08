@@ -1,6 +1,7 @@
 body{padding: 0px;
     margin: 0px;
-    
+    background:  #f4f4f4;
+
     fbackground-color: #8098ff;
     
         box-sizing: border-box;
@@ -46,52 +47,55 @@ border-bottom:2px solid #ff15d2;
        border-bottom:2px solid #ff15d2;
        background-color:#008080;
       position: fixed;
-      margin-top:82px;
+      margin-top:52px;
       z-index:9999;
       margin-left:10px;
        padding:10px 0px;
        }
        .container1 {
-        height:200px;
+        height:150px;
           display: flex;
           align-items: center;
-          justify-content:center;
+          justify-content:space-between;
           color:white;
           background-size:cover;
-          background-image: url(../images/a14.jpeg);
+          background-image: url(../images/a5.jpg);
           background-attachment: fixed;
           background-blend-mode: overlay;
-          background-color: #40ffcf23;
-          margin-top:140px;
+          sbackground-color: #40ffcff3;
+
+          /background-color:#40ffcff3;
+
+          margin-top:120px;
           flex-wrap: wrap;
-          gap: 20px; /* المسافة بين البطاقات */
+          gap: 5px; /* المسافة بين البطاقات */
           border-bottom:2px solid #ff15d2;
 
       }
       
     .logo{display:flex;
     padding: 5px;}  
-    .logo h1{nfloat:left;
-    
-       padding:5px 30px;
-       font-size:45px;
+    .logo h1{float:left;
+    color:red;
+       padding:5px 5px;
+       font-size:25px;
        font-weight:900;
        margin-left:3px; 
        text-shadow:3px 3px 3px rgba(253,6,6,0.2 )
     }
-    .logo img{width: 40px;
+    .logo img{width: 20%;
     height: 40px;
-    margin-top:45px ;
+    margin-top:5px ;
     box-shadow:2px 5px 2px 0px;
     border-radius:10px ;}
     .searsh_bar form{
     display:flex;
-       e float:right;
-        margin-top:20px;
-       r margin-left:10px;
+        float:right;
+        margin-top:0px;
+        margin-left:0px;
     }
     .searsh_input{padding: 5px;
-    width:280px;
+    width:50%;
     }
     
     
@@ -112,59 +116,102 @@ border-bottom: 3px solid #dfdfdf;
 
 
 
-    .section{
+    .fsection{
     
       display:inline-block;
-    background: #8098ff;
-      
+    background: #28a745;
+    margin-bottom: 10px;
+    text-align: center;
+    align-items: center;
+ 
      }
+     .section{display:flex;
+     border:2px solid black;
+      border-radius: 14px;
+      background: #f4f4f4;
+    font: bold;
+    font-size: 14px;
+      text-align: center;
+      align-items:start;
+   background-color: #28a745;
+   
+   margin-right: 10px;
+   align-items: center;
+   justify-content: center;
+
+     }
+     
+
+
+
      .section ul{
       list-style: none;
       }
       .section ul li{
         float:right;
-        padding:0px 3px;
+        padding:0px 0px;
         margin-left:5px;
+        margin-right: 20px;
+        text-align: center;
+display: flex;
+justify-content: center;
       } 
       .section ul li a{
         text-decoration:none;
-        color:#333;
-        padding:3px 3px;
-font-size:18px;
-border-radius: 5px;
-
-
+        color:#f4f4f4;
+        text-align: center;
+        padding:3px 0px;
+font-size:14px;
+border-radius: 3px;
+text-align: center;
+margin-right: 0px;
+align-items: center;
+display: flex;
+justify-content: center;
       }
 
       .section ul li a:hover{
-      
-      background-color: #ccc;
-      color:#ff15d2;
-      
+        font-size:14px;
+
+      background-color: #218838;
+      gcolor:#ff15d2;
+      border-radius: 14px;
+
       } 
-      .section a{
+      .nsection a{
       
       display:inline-block;
           text-decoration:none;
           color:#333;
-            padding: 2px;
-              border-radius: 5px;
+            padding: 3px 3px;
+              pborder-radius: 5px;
+              margin: 2px 2px;
+              margin-top:10px;
       }
+
+      .psection  a:hover{background: #ff15d2;
+        padding:10px,10px;
+        
+        
+        }
+        
       .social i{padding: 2px;
-    y  margin-left: 4px;}
+               color:#dfdfdf;
+margin-left: 15px;
 
 
-    .social i:hover{background: #ff15d2;
-    paddind:20px,20px;}
-      social  i :hover{background: #8098ff;}
-    .section{border-bottom:2px solid black;
-     border-radius: 14px;background: #f4f4f4;
+  }
+
+
+      .social  i:hover{background:#40b6ff;
+        padding:20px,20px;
+      border-radius: 50%;
+      }
+
+      
     
     
-    }
-    
-    
-    .section  a{
+    n.section  a{
         color:#333;
         text-decoration:none;
         border:2px solid rgba(214,500,160,.2);
@@ -172,12 +219,7 @@ border-radius: 5px;
         border-radius: 14px;
         
     }
-    .section  a:hover{background: #ff15d2;
-    paddind:10px,10px;
-    
-    
-    }
-    
+
     .last-bost{
       f background:#787878 ; 
         border-radius: 4px solid white ;
@@ -233,38 +275,10 @@ border-radius: 5px;
          flex-wrap: wrap;
       background:  #f4f4f4;
       width: 100%;
-      height: auto;
-      margin: 0px;
+      height: 50%;
+      margin-top: 0px;
       }
-      .product_card{
-
-        /position: relative;
-  
-        width:25%;
-        display: flex;
-          flex-direction: column;
-          align-items: center; 
-      border:2px solid #1b2036;
-      box-shadow:2px 2px 2px 0px #333;
-      border-radius:30px;
-      margin-right: 12px;;
-      height: 700px;
-      background:#ffffff;
-      bbackground-image: url("images/a1.png");
-      color:#333  bold;
-      font-size: 12px bold;
-      halign-item:right;
-      text-align:center;
-      overflow: hidden;
-      margin-top: 10px ;
-      }
-
-    .product_card a{color:#333;
-        text-decoration:none;
-        border:2px solid rgba(214,500,160,.2);
-        display:inline-block;
-        border-radius: 14px;}
-    .card1 {
+.card1 {
         background-color: #ffffff;
         border: 1px solid #ccc;
         border-radius: 8px;
@@ -301,35 +315,74 @@ border-radius: 5px;
         color: white;
         border: none;
         border-radius: 5px;
-        padding: 5px 5px;
+        padding: 2px 2px;
         cursor: pointer;
+        border:2px solid black;
+        border-radius: 14px;
+  
+
     }
+
+       .add-to-cart i{color:red;}
+
     
     .add-to-cart:hover {
         background-color: #218838; /* لون الزر عند التمرير */
     }
     
+    .product_card{
+
+    /position: relative;
+
+      width:25%;
+      display: flex;
+        flex-direction: column;
+        align-items: center; 
+    /border:2px solid #1b2036;
+    box-shadow:1px 2px 5px 0px ;
+    border-radius:30px;
+    margin-right: 12px;;
+    height: 400px;
+    background:#ffffff;
+    color:#333  bold;
+    font-size: 12px bold;
+    text-align:center;
+    overflow: hidden;
+    margin: 10px 10px ;
     
+
+    }
+
+  .product_card a{color:#333;
+      text-decoration:none;
+      border:2px solid rgba(214,500,160,.2);
+      display:inline-block;
+      border-radius: 14px;}
+  
     
 /*  خصايص الصورة */
 .product_card .card-img {
-                width:350px; /* عرض الدف */
-               height:600px; /* طول الدف */
-                border: 1px solid ; /* حدود ملونة */
+                width:100%; /* عرض الدف */
+               height:50%; /* طول الدف */
+               // border: 1px solid ; /* حدود ملونة */
                 border-radius: 15px; /* زوايا منحنية */
                 overflow: hidden; /* لإخفاء أي جزء من الصورة يتجاوز الحدود */
                 display: flex; /* لتوسيع الصورة داخل الدف */
                 align-items: center; /* محاذاة الصورة عمودياً */
                 justify-content: center; /* محاذاة الصورة أفقياً */
-                background-color: #218838; /* لون الزر عند التمرير */
-
-                margin: 0px 20px;
+                background-color:white; /* لون الزر عند التمرير */
+                border-radius:12px;
+                margin: 20px 20px;
             }
 
     
       .product_card .card-img img {
-                width: 350px; /* عرض الصورة 100% من حجم الدف */
-                height: 600px; /* طول الصورة 100% من حجم الدف */
+                /width: 160px; /* عرض الصورة 100% من حجم الدف */
+                width: 100%; /* عرض الصورة 100% من حجم الدف */
+
+                overflow: hidden; /* لإخفاء أي جزء من الصورة يتجاوز الحدود */
+
+                height: 100%; /* طول الصورة 100% من حجم الدف */
                 object-fit: cover; /* لتغطية الصورة بالكامل دون تشويه */
                 
          
@@ -401,6 +454,8 @@ padding:5px 5px;
         gmargin-left: 12px;
     }
       .footer{
+        display: flex;
+        justify-content:space-between;
         position: fixed;
         bottom: 0px;
         height: 5%;
@@ -410,5 +465,24 @@ padding:5px 5px;
         text-align: center;
         color:#dfdfdf;
         width:100%;
+        margin-top: 40px;
       }
-    
+      .product_img{
+
+        float:left;
+        display:flex;
+        flex-wrap:wrap;
+        margin-bottom:20px;
+      }
+      .product_img img{
+       width:100%;
+       height:100%;
+       margin-left:40px;
+       margin-right:40px;
+       margin-bottom:20px;
+       box-shadow:0 5px 10px rgba(0,0,0,1.0);
+      }
+      .product_img img:hover{
+       opacity: 0.7;
+      }
+      
