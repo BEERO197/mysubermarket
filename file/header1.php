@@ -17,11 +17,13 @@
 <div class="section">
 
 <nav>
+    <ul>
+<li> <a href="../index.php">الرئيسية</a></li>
+<div class="section">
+<li> <a href="../Admin/admin.php">لوحة تحكم للادمن
+</a></li>
 
-          <ul>
-       <li> <a href="../index.php">الرئيسية</a></li>
-          
-       <li> <a href="../Admin/admin.php">admin panal</a></li>
+ 
 
 <?php
 $query="SELECT *FROM section ";
@@ -40,7 +42,8 @@ while ($row=mysqli_fetch_assoc($result)){
 
 }?>
       </ul>
-</nav>
+</nav>      
+
 </div><!-- نهاية سكشن -->
 <!--شريط السوشيال ميدا -->  
 </div><!-- نهاية كونتينر-->
@@ -59,7 +62,7 @@ while ($row=mysqli_fetch_assoc($result)){
 
 
 ?>
-  <a href="detalis.php?id=<?php echo $row['id'];?>">
+  <a href="">
    <span class="span-img">
     <img src="uploads/img//<?php echo $row['image'];?>" width="30">
   </span> </a>
@@ -71,6 +74,9 @@ while ($row=mysqli_fetch_assoc($result)){
 </div><!--المضاف اخيرا  نهاية-->
 
 
+
+
+
 <div    class="cart-icon">
 
    <i  class="fas fa-shopping-cart" style="font-size:20px" ></i>
@@ -79,6 +85,13 @@ while ($row=mysqli_fetch_assoc($result)){
   
           <a href="sinup.php"><i class="fa-solid fa-user" style="font-size:20px;color:#080808;"></i></a>
    </div>
+
+
+
+
+
+
+
     </div>
 
     <div class="header">
@@ -90,12 +103,38 @@ while ($row=mysqli_fetch_assoc($result)){
      <!---searsh -->
        <div class="searsh">
            <div class="searsh_bar">  
-           <form action="search.php"    method="get">
+           <form action="searsh1.php"    method="get">
                <input type="text"  class="searsh_input" name="search" placeholder="ادخل كلملة البحث"></input>
                <button class="button_searsh" name="btn-searsh">بحث</button>
            </form>
        </div>
-      </div>  
+
+       
+
+
+
+       </div>  
+
+
+
+       <div class="social">
+    
+    <a href="" target_blank><i class="fa-brands fa-facebook"></i></a>
+    
+     <a href=""><i class="fa-brands fa-twitter"></i></a>
+  
+     
+       <a href="" target_blank><i class="fa-brands fa-instagram"></i></a>
+
+</div ><!-- نهاية السوشيال -->  
+
+
+
+
+
+<br>
+
+
       <!---end  searsh-->
     </div> 
     

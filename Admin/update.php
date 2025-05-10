@@ -1,18 +1,6 @@
 <?php
 // Include the connection file if needed
-// include("../include/connection1.php");
-
-$host = "localhost";
-$username = "abeer";
-$password = "abeer_zakut";
-$dbname = "ecommerce_db";
-
-$conn = mysqli_connect($host, $username, $password, $dbname);
-if ($conn) {
-    echo "connection OK";
-} else {
-    echo "connection NOT OK";
-}
+ include("../include/connection1.php");
 
 // Check if ID is set in the GET request
 if (isset($_GET['id'])) {

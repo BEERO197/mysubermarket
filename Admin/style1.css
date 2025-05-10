@@ -7,15 +7,20 @@ body{
     background-color: #fff;
 }
 .sidbar_container{
+    width: 100%;
+    height: auto;
+    background-color:#fff;
+
     display: flex;
     position: relative;
 }
 .sidbar_container .sidebar{
-    background-color: #ccc;
-    position: fixed;
-    right: 20px;
-    width:280px;
-    height: 100%;
+    background-color:#ccc;
+   position: fixed;
+   right: 0px;
+    top:40px;
+    width:20%;
+    height: 90%;
     border-radius: 10% 10% 20%;
 
 }
@@ -28,13 +33,15 @@ body{
 }
 
 .sidbar_container .sidebar ul li{
-font-size: 28px;
-padding: 15px;
+font-size: 16px;
+padding: 5px;
 border-bottom: 1px solid #fff;
 float: right;
+
 }
 .sidbar_container .sidebar ul li i{
 margin-left: 30;
+font-size: 20px;
 color:black ;
 }
 .sidbar_container .sidebar ul li a{
@@ -50,6 +57,10 @@ color:red;
 
 }
 .sidbar_container .content_sec{
+    background-color:#fff;
+
+height:100% ;
+
 width: 70%;
 margin-left: 20px;
 padding: 20px;
@@ -61,8 +72,8 @@ padding: 20px;
 
 display: block;
 margin-bottom: 5px;
-font-size: 40px;
-margin-right: 40px;
+font-size: 20px;
+margin-right: 60px;
 text-align: right;
 }
 .sidbar_container .content_sec input{
@@ -74,7 +85,7 @@ border: 1px solid #ccc;
 }
 
 .sidbar_container .content_sec .add{
-background-color: deeppink;
+background-color: red;
 box-shadow: 10px 2px 3px gray;
 border-radius: 50% 50% 2px;
 padding: 15px 5px;
@@ -96,8 +107,8 @@ cursor: pointer;
     margin-top: 10px;
 }
 .sidbar_container table th,td{
-font-size:22px;
-padding: 8px;
+font-size:14px;
+padding: 4px;
 text-align:center;
 border:1px solid #ddd;
 }
@@ -105,9 +116,9 @@ border:1px solid #ddd;
 background-color: aqua;
 }
 .sidbar_container table   .delet{
- width:200px;
+ width:80%;
 color:white;
-font-size:18px;
+font-size:14px;
 background-color: rgb(182,48,48);
 padding: 10px 10px;
 border-radius: 50% 50% 2px;
@@ -151,7 +162,7 @@ button{
     cursor:pointer;
     font-size:18px;
     text-align: center;
-
+color:white;
 }
 button:hover{
     background-color:#011c38;
@@ -167,26 +178,15 @@ button:hover{
     }
 /*end product css*/
 .UPDATE{
-width:200px;
-    
+    width:80%;
     background-color: rgb(3,228,100);
-    
-    
-
     border:1px solid rgb(154,240,182);
     margin-right:5px;
-
-    width:200px;
     color:white;
-    font-size:18px;
-    
+    font-size:14x;
     padding: 10px 10px;
+    
     border-radius: 50% 50% 2px;
-    
-
-    
-
-
 }
 
 .UPDATE:hover{
@@ -194,9 +194,10 @@ width:200px;
     color:white;
 }
 .sidbar_container table img{
-width:50px;
-height:50px
+width:30%;
+height:30%;
 
 
 
 }
+

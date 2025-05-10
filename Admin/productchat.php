@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
 ?>
 
 <div class="sidbar_container">
+    
 <table dir="rtl">
     <tr>
         <th>id</th>
@@ -73,14 +74,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
                 <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <button type="submit" class="delet">DELETE PRODUCT</button>
             </form>
-        </td>
+        </td> 
         <td><a href="update.php?id=<?php echo $row['id'];?>"><button type="submit" class="UPDATE">UPDATE PRODUCT</button></a></td>
     </tr>
     <?php
     }
     ?>
 </table>
+
 </div>
+<button type="submit" class="delet"><a href="adminpanal.php">RETURN</a></button>
 
 </body>
 </html>

@@ -3,7 +3,6 @@ session_start();
 include("../include/connection1.php");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,73 +12,78 @@ include("../include/connection1.php");
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-<a href="adminpanal.php"><button type="submit"  class="UPDATE">RETURN</button>
+
 <?php
-//start delete
-$id=$_GET['id'];
-if (isset($id)){
-$query="DELETE FROM products WHERE id='".$id."'";
-$delete=mysqli_query($conn,$query);
-if (isset($delete)){
-    echo '<script>alert("DELETE SUFSSUCLY OK");</script>';
-}
-else{                echo '<script>alert("Error: ' . mysqli_error($conn) . '");</script>';
-}
-
-
-//else{
-    //echo '<script>alert("DELETE  NOT SUFSSUCLY ");</script>';
-  
-//}
-
+// التحقق من وجود معرّف المنتج (id) وحذفه
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $query = "DELETE FROM products WHERE id='".$id."'";
+    $delete = mysqli_query($conn, $query);
+    
+    if ($delete) {
+        echo '<script>alert("DELETE SUCCESSFULLY OK");</script>';
+    } else {
+        echo '<script>alert("Error: ' . mysqli_error($conn) . '");</script>';
+    }
 }
 ?>
+
 <div class="sidbar_container">
+    
 <table dir="rtl">
     <tr>
-        <th>id</th>
-        <th>image product</th>
-        <th>adress product</th>
-        <th>price</th>
-        <th>size</th>
-        <th>avalabel</th>
-        <th>section</th>
-        <th>detials</th>
-        <th>quantity</th>
-        <th>delete product</th>
-        <th>updare product</th>
-        
-   </tr>
-   <?php
-   $query="SELECT * FROM products ";
-   $result=mysqli_query($conn,$query);
-   while ($row=mysqli_fetch_assoc($result)) {
-   ?>
-   <tr>
-        <td><?php echo $row['id'];?></td>
-        <!---img--->
-        <td><img src="../uploads/img//<?php echo $row['image'];?>"></td>  
-            <!---im--->
-            <td><?php echo $row['name'];?></td>
-        <td><?php echo $row['price'];?></td>
-        <td><?php echo $row['prosize'];?></td>
-        <td><?php echo $row['prounv'];?></td>
-        <td><?php echo $row['prosection'];?></td>
-        <td><?php echo $row['description'];?></td>
-        <td><?php echo $row['quantity'];?></td>
-        <td><a hreh="product.php?id=<?php echo $row['id'];?>">
+        <th>الرقم</th>
+        <th> صورة</th>
+        <th>العنوان </th>
+        <th>السعر</th>
+        <th>الحجم</th>
+        <th>متوفر</th>
+        <th>القسم</th>
+        <th>تفاصيل</th>
+        <th>الكمية</th>
+        <th> حذف المنتج</th>
+        <th> تعديل المنتج
+        </th>
+    </tr>
+    <?php
+    // استعلام لجلب المنتجات من قاعدة البيانات
+    $query = "SELECT * FROM products";
+    $result = mysqli_query($conn, $query);
 
-        
-        <button type="submit"  class="delet">DELETE PRODUCT</button></a></td>
-        <td><a href=""><button type="submit"  class="UPDATE">UPDATE PRODUCT</button></a></td>
-   </tr>
-</div> 
+    // معالجة الخطأ في حال فشل الاستعلام
+    if (!$result) {
+        echo '<script>alert("Error: ' . mysqli_error($conn) . '");</script>';
+        die();
+    }
 
-   <?php
-   }
+    // عرض المنتجات في الجدول
+    while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+    <tr>
+        <td><?php echo $row['id']; ?></td>
+        <td><img src="../uploads/img/<?php echo $row['image']; ?>"></td>
+        <td><?php echo $row['name']; ?></td>
+        <td><?php echo $row['price']; ?></td>
+        <td><?php echo $row['prosize']; ?></td>
+        <td><?php echo $row['prounv']; ?></td>
+        <td><?php echo $row['prosection']; ?></td>
+        <td><?php echo $row['description']; ?></td>
+        <td><?php echo $row['quantity']; ?></td>
+        <td>
+            <form method="POST" action="product.php">
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                <button type="submit" class="delet">حذف </button>
+            </form>
+        </td> 
+        <td><a href="update.php?id=<?php echo $row['id'];?>"><button type="submit" class="UPDATE">تعديل</button></a></td>
+    </tr>
+    <?php
+    }
+    ?>
+</table>
 
-   ?>
-      </table>
+</div>
+<button type="submit" class="UPDATE"><a href="adminpanal.php">RETURN</a></button>
 
 </body>
 </html>
